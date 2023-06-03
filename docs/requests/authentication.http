@@ -1,0 +1,21 @@
+@host=http://localhost:5218/api/v1
+POST {{host}}/authentication/register
+Content-Type: application/json
+
+{
+    "firstName":"Chima",
+    "lastName":"Nwadike",
+    "emailAddress":"chimanwadike94@gmail.com",
+    "phoneNumber":"07983796550",
+    "password":"Chima1234!"
+}
+
+###
+
+POST {{host}}/authentication/login
+Content-Type: application/json
+
+{
+    "emailAddress":"chimanwadike94@gmail.com",    
+    "password":"Chima1234!"
+}
