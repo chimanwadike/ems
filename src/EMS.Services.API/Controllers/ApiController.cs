@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using ErrorOr;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace EMS.Services.API.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
     public class ApiController : ControllerBase
     {
         protected IActionResult Problem(List<Error> errors)
