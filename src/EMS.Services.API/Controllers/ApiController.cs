@@ -10,9 +10,9 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace EMS.Services.API.Controllers
 {
-    [ApiController]
+    [ApiVersion("2.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    [ApiVersion("1.0")]
+    [ApiController]
     public class ApiController : ControllerBase
     {
         protected IActionResult Problem(List<Error> errors)
