@@ -17,14 +17,15 @@ public class AuthenticationController : ApiController
     }
 
     [HttpPost("login")]
-    public IActionResult Login(LoginRequest loginRequest)
+    public IActionResult Login(LoginRequest request)
     {
-        var authResult = _authenticationService.Login(loginRequest.EmailAddress, loginRequest.Password);
+        var authResult = _authenticationService.Login(request.EmailAddress, request.Password);
 
-        var authResponse = new AuthenticationResponse(authResult.Id,
-        authResult.FirstName,
-        authResult.LastName,
-        authResult.EmailAddress,
+        var authResponse = new AuthenticationResponse(authResult.User.Id,
+        authResult.User.FirstName,
+        authResult.User.LastName,
+        authResult.User.EmailAddress,
+        authResult.User.PhoneNumber ?? String.Empty,
         authResult.Token
         );
 
@@ -32,18 +33,19 @@ public class AuthenticationController : ApiController
     }
 
     [HttpPost("register")]
-    public IActionResult Register(RegisterRequest registerRequest)
+    public IActionResult Register(RegisterRequest request)
     {
         var authResult = _authenticationService.Register(
-            registerRequest.FirstName,
-            registerRequest.LastName,
-            registerRequest.EmailAddress,
-            registerRequest.Password);
+            request.FirstName,
+            request.LastName,
+            request.EmailAddress,
+            request.Password);
 
-        var authResponse = new AuthenticationResponse(authResult.Id,
-        registerRequest.FirstName,
-        registerRequest.LastName,
-        authResult.EmailAddress,
+        var authResponse = new AuthenticationResponse(authResult.User.Id,
+        authResult.User.FirstName,
+        authResult.User.LastName,
+        authResult.User.EmailAddress,
+        authResult.User.PhoneNumber ?? string.Empty,
         authResult.Token
         );
 

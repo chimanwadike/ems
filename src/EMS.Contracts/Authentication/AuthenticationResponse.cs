@@ -11,5 +11,6 @@ public record AuthenticationResponse
     string FirstName,
     string LastName,
     string EmailAddress,
+    string PhoneNumber,
     string Token
 );

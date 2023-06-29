@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EMS.Application.Common.Interfaces.Authentication;
+using EMS.Application.Common.Interfaces.Persistence;
 using EMS.Application.Common.Interfaces.Providers;
 using EMS.Application.Services.Authentication;
 using EMS.Infrastructure.Authentication;
+using EMS.Infrastructure.Persistence;
 using EMS.Infrastructure.Providers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +24,7 @@ public static class DependencyInjection
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<IDateTimeProvider, UtcDateTimeProvider>();
         services.AddScoped<IAuthenticationService, AuthenticationService>();
+        services.AddScoped<IUserRepository, UserRepository>();
 
         return services;
     }
