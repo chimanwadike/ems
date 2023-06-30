@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using EMS.Application.Services.Authentication;
 using EMS.Contracts.Authentication;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMS.Services.API.Controllers;
@@ -21,13 +23,13 @@ public class AuthenticationController : ApiController
     {
         var authResult = _authenticationService.Login(request.EmailAddress, request.Password);
 
-        var authResponse = new AuthenticationResponse(authResult.User.Id,
-        authResult.User.FirstName,
-        authResult.User.LastName,
-        authResult.User.EmailAddress,
-        authResult.User.PhoneNumber ?? String.Empty,
-        authResult.Token
-        );
+        var authResponse = new AuthenticationResponse(
+            authResult.User.Id,
+            authResult.User.FirstName,
+            authResult.User.LastName,
+            authResult.User.EmailAddress,
+            authResult.User.PhoneNumber ?? string.Empty,
+            authResult.Token);
 
         return Ok(authResponse);
     }
@@ -41,13 +43,13 @@ public class AuthenticationController : ApiController
             request.EmailAddress,
             request.Password);
 
-        var authResponse = new AuthenticationResponse(authResult.User.Id,
-        authResult.User.FirstName,
-        authResult.User.LastName,
-        authResult.User.EmailAddress,
-        authResult.User.PhoneNumber ?? string.Empty,
-        authResult.Token
-        );
+        var authResponse = new AuthenticationResponse(
+            authResult.User.Id,
+            authResult.User.FirstName,
+            authResult.User.LastName,
+            authResult.User.EmailAddress,
+            authResult.User.PhoneNumber ?? string.Empty,
+            authResult.Token);
 
         return Ok(authResponse);
     }

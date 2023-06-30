@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EMS.Application.Common.Interfaces.Authentication;
 using EMS.Application.Common.Interfaces.Persistence;
 using EMS.Application.Services.Authentication;
@@ -16,8 +12,7 @@ public class AuthenticationService : IAuthenticationService
 
     public AuthenticationService(
         IJwtTokenGenerator jwtTokenGenerator,
-        IUserRepository userRepository
-        )
+        IUserRepository userRepository)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
         _userRepository = userRepository;
@@ -59,7 +54,7 @@ public class AuthenticationService : IAuthenticationService
             FirstName = firstName,
             LastName = lastName,
             EmailAddress = emailAddress,
-            Password = password
+            Password = password,
         };
 
         _userRepository.Add(user);
