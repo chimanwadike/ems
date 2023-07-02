@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EMS.UnitTests.Commons\EMS.UnitTests.Commons.csproj" />
+    <ProjectReference Include="..\..\..\src\EMS.Infrastructure\EMS.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

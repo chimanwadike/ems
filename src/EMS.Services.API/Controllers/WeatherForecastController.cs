@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EMS.Services.API.Controllers;
 
-[ApiVersion("2.0")]
+[ApiVersion("2")]
 public class WeatherForecastController : ApiController
 {
     private static readonly string[] Summaries = new[]
