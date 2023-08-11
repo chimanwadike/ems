@@ -1,0 +1,105 @@
+Predict hiv risk
+---
+tags:
+  - Prediction
+parameters:
+  - in: header
+    name: Authorization
+    required: false
+  - name: body
+    description: The body should demography data
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "Age"
+        - "Relationship with family head"
+        - "Sick to work last three months"
+        - "Ever attended school"
+        - "Ever enrolled in school"
+        - "Highest level of education"
+        - "Work for payment in last 12 months"
+        - "Ever married or lived together"
+        - "curmar"
+        - "Avoiding pregnancy"
+        - "Circumcision Status"
+        - "Age at first sex"
+        - "Ever tested HIV"
+        - "Ever sought TB treatment"
+        - "Used condom at last sex in past 12 months"
+        - "Urban area indicator"
+        - "Wealth quintile"
+        - "Sexual intercourse in the past 12 months"
+        - "last sex partner relations past 12 months"
+
+      properties:
+        "Age":
+          type: "integer"
+          example: 1
+        "Relationship with family head":
+          type: "integer"
+          example: 1
+        "Sick to work last three months":
+          type: "integer"
+          example: 1
+        "Ever attended school":
+          type: "integer"
+          example: 1
+        "Ever enrolled in school":
+          type: "integer"
+          example: 1
+        "Highest level of education":
+          type: "integer"
+          example: 1
+        "Work for payment in last 12 months":
+          type: "integer"
+          example: 1
+        "Ever married or lived together":
+          type: "integer"
+          example: 1
+        "curmar":
+          type: "integer"
+          example: 1
+        "Avoiding pregnancy":
+          type: "integer"
+          example: 1
+        "Circumcision Status":
+          type: "integer"
+          example: 1
+        "Age at first sex":
+          type: "integer"
+          example: 1
+        "Ever tested HIV":
+          type: "integer"
+          example: 1
+        "Ever sought TB treatment":
+          type: "integer"
+          example: 1
+        "Used condom at last sex in past 12 months":
+          type: "integer"
+          example: 1
+        "Urban area indicator":
+          type: "integer"
+          example: 1
+        "Wealth quintile":
+          type: "integer"
+          example: 1
+        "Sexual intercourse in the past 12 months":
+          type: "integer"
+          example: 1
+        "last sex partner relations past 12 months":
+          type: "integer"
+          example: 1
+responses:
+  200:
+    description: when a prediction is successful
+    schema:
+      type: object
+      properties:
+        status:
+          type: "string"
+          example: 'At Risk'
+
+  500:
+    description: When the server behaves wrongly
